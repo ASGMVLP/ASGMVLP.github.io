@@ -222,51 +222,36 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <!-- Visual Effects. -->
-        <h2 class="title is-3">Visualization Results on Anatomy-Sentence Alignment</h2>
-        <div class="content has-text-justified">
-        <p>
-          Anatomy-Sentence Alignment has two different ways to handle the corresponding report and image.<br>
-          The first is <b>Merge Bbox</b>. We freezed the sentences and merging the related bounding box to close to the sentence.<br>
-          The second is <b>Split Sent</b>. We freezed the bounding box and split the sentence into the related bbox to make them more closer.
-          <br>
-          <br>What follows is an example. And the original image and the total detected bounding box are shown in the figure. The report corresponding to the original image is below the image. <br>
-          The area and text corresponding to each bounding box can be viewed through the drop-down menu.<br>
-        </p>
-          <!-- <img src="static/images/caption_visualization.png" style="width: 100%" alt> -->
-
-        <!-- <img src="static/images/examples/examples.jpg" style="width: 50%" align="center" alt> -->
-        
-        </div>
+        <h2 class="title is-3">Demo for Anatomical Structure-Sentence Alignment</h2>
+        <img src="static/images/scenarios.png" style="width: 100%" alt>
+        <h2 class="subtitle has-text-centered">
+          Three scenarios of anatomical region-sentence alignment.
+        </h2>
       </div>
     </div>
-    <!-- <div class="columns is-centered">
-
-      <div class="column">
-        <div class="content">
-          <img src="static/images/examples/examples.jpg" style="height: 50%" alt>
-        </div>
-      </div>
-
-      <div class="column">
-        <h2 class="title is-3"> </h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              <b>Report:</b>
-              right internal jugular dual lumen large bore catheter unchanged in position with the tip in the right atrium. overall cardiac and mediastinal contours are stably enlarged given patient s rotation. lung volumes are diminished. there is perihilar fullness and indistinctness of the pulmonary vasculature which would favor pulmonary edema rather than an acute infectious process. however clinical correlation would be advised as this could reflect an atypical infection. no large effusions. no pneumothorax
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </div> -->
 
     <div class="columns is-centered">
+      <p align="center" style="font-size: 20px;">
+        <h2 style="font-size: 20px;">We provide an example, showing the alignment results under two different methods, i.e., merge bbox, split sentence. </h2>
+      </p> 
+    </div>
+    <br>
+    <br>
+    <div class="columns is-centered">
+      <p align="left" style="font-size: 20px;">
+        <b>Raw report:</b> mild left basal atelectasis. otherwise unremarkable. ap upright and lateral views the chest were provided mild left basal atelectasis lungs are otherwise clear no signs of pneumonia or edema no large effusion or pneumothorax cardiomediastinal silhouette is normal bony structures are intact no free air below the right hemidiaphragm.
+      </p>
+    </div>
+    
+    <div class="columns is-centered">
+      <!-- <div class="column">
+
+      </div> -->
 
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Merge Bbox</h2> 
+          <h2 class="title is-3" align="center">Merge Bbox</h2> 
           <select id="merge_bbox_box" onchange="updateContent_merge()">
             <option value="jpg_default">Default</option>
             <option value="jpg_bbox1">Bbox1</option>
@@ -274,21 +259,18 @@
             <option value="jpg_bbox3">Bbox3</option>
             <option value="jpg_bbox4">Bbox4</option>
           </select>
+          <br>
           <img id="merge_bbox_image" src="static/images/examples/jpg_all_bbox.jpg" style="width: 100%" alt>
 
           <p id="merge_bbox_txt">right internal jugular dual lumen large bore catheter unchanged in position with the tip in the right atrium. overall cardiac and mediastinal contours are stably enlarged given patient s rotation. lung volumes are diminished. there is perihilar fullness and indistinctness of the pulmonary vasculature which would favor pulmonary edema rather than an acute infectious process. however clinical correlation would be advised as this could reflect an atypical infection. no large effusions. no pneumothorax
           </p>
-          <!-- <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video> -->
         </div>
       </div>
       <!--/ Visual Effects. -->
 
       <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Split Sent</h2>
+        <h2 class="title is-3" align="center">Split Sent</h2>
         <div class="columns is-centered">
           <div class="column content">
             <select id="split_sent_box" onchange="updateContent_split()">
@@ -308,6 +290,10 @@
 
         </div>
       </div>
+
+      <!-- <div class="column">
+
+      </div> -->
     </div>
 
     
