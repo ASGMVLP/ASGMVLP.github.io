@@ -193,13 +193,406 @@
     <div class="hero-body">
       <img src="static/images/frame.png" style="width: 200%" alt>
       <h2 class="subtitle has-text-centered">
-        The pipeline of <span style="color: orange; font-weight:bold">Anatomical Structure-Guided Medical Vision-Language Pre-training</span>.
+        The framework of <span style="color: orange; font-weight:bold">Anatomical Structure-Guided Medical Vision-Language Pre-training</span>.
       </h2>
     </div>
   </div>
 </section>
 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/region.png" style="width: 200%" alt>
+      <h2 class="subtitle has-text-centered">
 
+        <span style="color: orange; font-weight:bold">Our anatomical region - sentence alignment pipline</span>.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/case.png" style="width: 200%" alt>
+      <h2 class="subtitle has-text-centered">
+        <span style="color: orange; font-weight:bold">One case of our re-labeled dataset</span>.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/detailed.png" style="width: 200%" alt>
+      <h2 class="subtitle has-text-centered">
+        The differences between our re-labeled dataset and Chest ImaGenome.(use left lung as an example)
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Highlight</h2>
+          <div class="content has-text-justified">
+          <p>
+          </p>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <!-- Visual Effects. -->
+        <h2 class="title is-3">Demo for Anatomical Structure-Sentence Alignment</h2>
+        <br>
+        <h2 class="subtitle has-text-centered">
+          Three scenarios of anatomical region-sentence alignment.
+        </h2>
+        <img src="static/images/scenarios.png" style="width: 100%" alt>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <p align="center" style="font-size: 20px;">
+        <h2 style="font-size: 20px;">We provide an example, showing the alignment results under two different methods, i.e., merge bbox, split sentence. </h2>
+      </p> 
+    </div>
+    <br>
+    <br>
+    <div class="columns is-centered">
+      <p align="left" style="font-size: 20px;">
+        <b>Raw report:</b> mild left basal atelectasis. otherwise unremarkable. ap upright and lateral views the chest were provided. mild left basal atelectasis. lungs are otherwise clear. no signs of pneumonia or edema. no large effusion or pneumothorax. cardiomediastinal silhouette is normal. bony structures are intact. no free air below the right hemidiaphragm.
+      </p>
+    </div>
+    
+    <div class="columns is-centered">
+      <!-- <div class="column">
+
+      </div> -->
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3" align="center">Merge Bbox</h2> 
+          <select id="merge_bbox_box" onchange="updateContent_merge()">
+            <option value="jpg_default">Default</option>
+            <option value="jpg_bbox1">Bbox1</option>
+            <option value="jpg_bbox2">Bbox2</option>
+            <option value="jpg_bbox3">Bbox3</option>
+            <option value="jpg_bbox4">Bbox4</option>
+          </select>
+          <br>
+          <img id="merge_bbox_image" src="static/images/examples/merge_default.jpg" style="width: 100%" alt>
+
+          <p id="merge_bbox_txt">
+            <!-- right internal jugular dual lumen large bore catheter unchanged in position with the tip in the right atrium. overall cardiac and mediastinal contours are stably enlarged given patient s rotation. lung volumes are diminished. there is perihilar fullness and indistinctness of the pulmonary vasculature which would favor pulmonary edema rather than an acute infectious process. however clinical correlation would be advised as this could reflect an atypical infection. no large effusions. no pneumothorax -->
+          </p>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3" align="center">Split Sent</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <select id="split_sent_box" onchange="updateContent_split()">
+              <option value="txt_default">Default</option>
+              <option value="txt_bbox1">Bbox1</option>
+              <option value="txt_bbox2">Bbox2</option>
+              <option value="txt_bbox3">Bbox3</option>
+              <option value="txt_bbox4">Bbox4</option>
+              <option value="txt_bbox5">Bbox5</option>
+            </select>
+
+            <img id="split_sent_image" src="static/images/examples/split_default.jpg" style="width: 100%" alt>
+            <p id="split_sent_txt">
+              <!-- right internal jugular dual lumen large bore catheter unchanged in position with the tip in the right atrium. overall cardiac and mediastinal contours are stably enlarged given patient s rotation. lung volumes are diminished. there is perihilar fullness and indistinctness of the pulmonary vasculature which would favor pulmonary edema rather than an acute infectious process. however clinical correlation would be advised as this could reflect an atypical infection. no large effusions. no pneumothorax -->
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- <div class="column">
+
+      </div> -->
+    </div>
+
+    
+  </div>
+</section>
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3">Visualization Results on Pre-trained Model</h2>
+      <div class="content has-text-justified">
+      <p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+
+  </div>
+</section> -->
+
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Anatomical Structure-Guided Medical Vision-Language Pre-training">
+  <meta name="keywords" content="Anatomical Structure-Guided Medical Vision-Language Pre-training">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anatomical Structure-Guided Medical Vision-Language Pre-training </title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  <script>
+    function updateContent_split() {
+      // 获取下拉框的选中值
+      var selectElement = document.getElementById("split_sent_box");
+      var selectedValue = selectElement.value;
+
+      // 修改图片
+      var imageElement = document.getElementById("split_sent_image");
+      
+      if (selectedValue === "txt_default") {
+        imageElement.src = "static/images/examples/split_default.jpg";
+      } else if (selectedValue === "txt_bbox1") {
+        imageElement.src = "static/images/examples/split_0.jpg";
+      } else if (selectedValue === "txt_bbox2") {
+        imageElement.src = "static/images/examples/split_1.jpg";
+      } else if (selectedValue === "txt_bbox3") {
+        imageElement.src = "static/images/examples/split_2.jpg";
+      } else if (selectedValue === "txt_bbox4") {
+        imageElement.src = "static/images/examples/split_3.jpg";
+      } else if (selectedValue === "txt_bbox5") {
+        imageElement.src = "static/images/examples/split_4.jpg";
+      }
+
+      // 修改文字
+      var textElement = document.getElementById("split_sent_txt");
+      if (selectedValue === "txt_default") {
+        textElement.innerHTML = "";
+      } else if (selectedValue === "txt_bbox1") {
+        textElement.innerHTML = "mild left basal atelectasis .";
+      } else if (selectedValue === "txt_bbox2") {
+        textElement.innerHTML = "right lung are otherwise clear .<br><br> no signs of pneumonia or edema of right lung.<br><br> no large effusion or pneumothorax of right lung.";
+      } else if (selectedValue === "txt_bbox3") {
+        textElement.innerHTML = "left lung are otherwise clear .<br><br> no signs of pneumonia or edema of left lung.<br><br> no large effusion or pneumothorax of left lung.";
+      } else if (selectedValue === "txt_bbox4") {
+        textElement.innerHTML = "cardiomediastinal silhouette is normal .";
+      } else if (selectedValue === "txt_bbox5") {
+        textElement.innerHTML = "no free air below the right hemidiaphragm .";
+      }
+    }
+  </script>
+  <script>
+    function updateContent_merge() {
+      // 获取下拉框的选中值
+      var selectElement = document.getElementById("merge_bbox_box");
+      var selectedValue = selectElement.value;
+
+      // 修改图片
+      var imageElement = document.getElementById("merge_bbox_image");
+      if (selectedValue === "jpg_default") {
+        imageElement.src = "static/images/examples/merge_default.jpg";
+      } else if (selectedValue === "jpg_bbox1") {
+        imageElement.src = "static/images/examples/merge_0.jpg";
+      } else if (selectedValue === "jpg_bbox2") {
+        imageElement.src = "static/images/examples/merge_1.jpg";
+      } else if (selectedValue === "jpg_bbox3") {
+        imageElement.src = "static/images/examples/merge_2.jpg";
+      } else if (selectedValue === "jpg_bbox4") {
+        imageElement.src = "static/images/examples/merge_3.jpg";
+      }
+
+      // 修改文字
+      var textElement = document.getElementById("merge_bbox_txt");
+      if (selectedValue === "jpg_default") {
+        textElement.innerHTML = "";
+      } else if (selectedValue === "jpg_bbox1") {
+        textElement.innerHTML =  "mild left basal atelectasis .";
+      } else if (selectedValue === "jpg_bbox2") {
+        textElement.innerHTML = "lungs are otherwise clear . <br><br> no signs of pneumonia or edema . <br><br> no large effusion or pneumothorax .";
+      } else if (selectedValue === "jpg_bbox3") {
+        textElement.innerHTML = "cardiomediastinal silhouette is normal .";
+      } else if (selectedValue === "jpg_bbox4") {
+        textElement.innerHTML = "no free air below the right hemidiaphragm .";
+      }
+
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+  <!-- <link rel="icon"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Anatomical Structure-Guided Medical Vision-Language Pre-training</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a>Anonymous<sup>1</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Anonymous Organization</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ASGMVLP/ASGMVLP_CODE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://huggingface.co/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa-solid fa-face-smiling-hands"></i>
+                  </span>
+                  <span></span>
+                  </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/intro.png" style="width: 200%" alt>
+      <h2 class="subtitle has-text-centered">
+        <span style="color: orange; font-weight:bold">Two limitations of existing methods</span>:  (a) lack of interpretability and clinical relevance and (b) insufficient representation learning of image-report pairs; and our corresponding improvement.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/frame.png" style="width: 200%" alt>
+      <h2 class="subtitle has-text-centered">
+        The framework of <span style="color: orange; font-weight:bold">Anatomical Structure-Guided Medical Vision-Language Pre-training</span>.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/region.png" style="width: 200%" alt>
+      <h2 class="subtitle has-text-centered">
+
+        <span style="color: orange; font-weight:bold">Our anatomical region - sentence alignment pipline</span>.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/case.png" style="width: 200%" alt>
+      <h2 class="subtitle has-text-centered">
+        <span style="color: orange; font-weight:bold">One case of our re-labeled dataset</span>.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/detailed.png" style="width: 200%" alt>
+      <h2 class="subtitle has-text-centered">
+        The differences between our re-labeled dataset and Chest ImaGenome.(use left lung as an example)
+      </h2>
+    </div>
+  </div>
+</section>
 <!-- <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
